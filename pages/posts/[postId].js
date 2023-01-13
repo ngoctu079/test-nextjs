@@ -1,15 +1,24 @@
 import { useRouter } from "next/router";
+import { fetchData } from "../../utils/axios";
 
 export default function PostDetailPage(props) {
-  const router = useRouter();
-  console.log({ props });
-
-  return <div>Post detail {JSON.stringify(router.query)}</div>;
+  return (
+    <div>
+      <div>ID: {props?.post?.id}</div>
+      <div>Name: {props?.post?.name}</div>
+    </div>
+  );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   // Fetch data from external API
+  const postId = context.query.postId;
+  const { data } = await fetchData.get("/posts/" + postId);
 
   // Pass data to the page via props
-  return { props: { tutest: "abcd" } };
+  return {
+    props: {
+      post: data?.[0] || {},
+    },
+  };
 }
