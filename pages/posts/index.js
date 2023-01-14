@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { fetchData } from "../../utils/axios";
 
 export default function AboutPage(props) {
@@ -8,11 +9,14 @@ export default function AboutPage(props) {
       <div>List Posts</div>
       {posts.map((value, index) => (
         <div key={value.id}>
-          <span>ID: {value.id}|</span>
-          <span>Name: {value.name}</span>
+          <Link href={"/posts/" + value.id}>
+            <span>ID: {value.id}|</span>
+            <span>Name: {value.name}</span>
+          </Link>
           <hr />
         </div>
       ))}
+      <Link href={"/posts/create"}>Add post</Link>
     </div>
   );
 }
