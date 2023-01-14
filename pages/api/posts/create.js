@@ -1,20 +1,19 @@
-import { getPostById } from "../../../service/posts";
+import { addPost } from "../../../service/posts";
 
 export default function handler(req, res) {
-  const postId = req.query.postId;
+  const post = req.body;
   const method = req.method;
-
-  const post = getPostById(postId);
 
   switch (method) {
     case "GET":
-      res.status(200).json(post);
       break;
 
     case "DELETE":
       break;
 
     case "POST":
+      const response = addPost(post);
+      res.status(200).json(response);
       break;
 
     default:
