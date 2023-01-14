@@ -18,7 +18,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>NGỌC TÚ 1712858 NGỌC TÚ 1712858 NGỌC TÚ 1712858</title>
+        <title>
+          NGỌC TÚ 1712858 NGỌC TÚ 1712858 NGỌC TÚ 1712858 NGỌC TÚ 1712858 NGỌC
+          TÚ 1712858 NGỌC TÚ 1712858
+        </title>
 
         <meta
           name="keywords"
