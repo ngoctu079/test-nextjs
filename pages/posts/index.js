@@ -6,6 +6,7 @@ export default function AboutPage(props) {
 
   return (
     <div>
+      <title>NGỌC TÚ 1712858</title>
       <div>List Posts</div>
       {posts.map((value, index) => (
         <div key={value.id}>
